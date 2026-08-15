@@ -1,0 +1,327 @@
+[
+  {
+    "operation": "ingest",
+    "event_id": "demo-suricata-001",
+    "timestamp": "2026-08-15T08:59:50.124491+00:00",
+    "details": {
+      "source": "suricata",
+      "is_replay": false,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-ai-001",
+    "timestamp": "2026-08-15T08:59:50.176288+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": false,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-sig-001",
+    "timestamp": "2026-08-15T08:59:50.236273+00:00",
+    "details": {
+      "source": "signature",
+      "is_replay": false,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-ai-low-001",
+    "timestamp": "2026-08-15T08:59:50.318080+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": false,
+      "outcome": "ignored"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-sig-high-001",
+    "timestamp": "2026-08-15T08:59:50.389128+00:00",
+    "details": {
+      "source": "signature",
+      "is_replay": false,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-ai-high-001",
+    "timestamp": "2026-08-15T08:59:50.475152+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": false,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-sig-conflict-001",
+    "timestamp": "2026-08-15T08:59:50.573964+00:00",
+    "details": {
+      "source": "signature",
+      "is_replay": false,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-late-001",
+    "timestamp": "2026-08-15T08:59:50.657518+00:00",
+    "details": {
+      "source": "signature",
+      "is_replay": true,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "replay",
+    "event_id": "demo-late-001",
+    "timestamp": "2026-08-15T08:59:50.657551+00:00",
+    "details": {
+      "reason": "late_arrival_or_timeline_reorder",
+      "affected_events": [
+        "demo-late-001",
+        "demo-suricata-001",
+        "demo-ai-001",
+        "demo-sig-001",
+        "demo-ai-low-001",
+        "demo-sig-high-001",
+        "demo-ai-high-001",
+        "demo-sig-conflict-001"
+      ]
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-retract-ai-001",
+    "timestamp": "2026-08-15T08:59:50.863349+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": false,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "demo-retract-late-001",
+    "timestamp": "2026-08-15T08:59:50.934487+00:00",
+    "details": {
+      "source": "signature",
+      "is_replay": true,
+      "outcome": "ignored"
+    }
+  },
+  {
+    "operation": "replay",
+    "event_id": "demo-retract-late-001",
+    "timestamp": "2026-08-15T08:59:50.934682+00:00",
+    "details": {
+      "reason": "late_arrival_or_timeline_reorder",
+      "affected_events": [
+        "demo-late-001",
+        "demo-suricata-001",
+        "demo-ai-001",
+        "demo-sig-001",
+        "demo-ai-low-001",
+        "demo-sig-high-001",
+        "demo-ai-high-001",
+        "demo-sig-conflict-001",
+        "demo-retract-late-001",
+        "demo-retract-ai-001"
+      ]
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "live-1786784501680",
+    "timestamp": "2026-08-15T09:01:41.696152+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": true,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "replay",
+    "event_id": "live-1786784501680",
+    "timestamp": "2026-08-15T09:01:41.696191+00:00",
+    "details": {
+      "reason": "late_arrival_or_timeline_reorder",
+      "affected_events": [
+        "live-1786784501680",
+        "demo-late-001",
+        "demo-suricata-001",
+        "demo-ai-001",
+        "demo-sig-001",
+        "demo-ai-low-001",
+        "demo-sig-high-001",
+        "demo-ai-high-001",
+        "demo-sig-conflict-001",
+        "demo-retract-late-001",
+        "demo-retract-ai-001"
+      ]
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "live-1786784506998",
+    "timestamp": "2026-08-15T09:01:47.017414+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": true,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "replay",
+    "event_id": "live-1786784506998",
+    "timestamp": "2026-08-15T09:01:47.017451+00:00",
+    "details": {
+      "reason": "late_arrival_or_timeline_reorder",
+      "affected_events": [
+        "live-1786784501680",
+        "live-1786784506998",
+        "demo-late-001",
+        "demo-suricata-001",
+        "demo-ai-001",
+        "demo-sig-001",
+        "demo-ai-low-001",
+        "demo-sig-high-001",
+        "demo-ai-high-001",
+        "demo-sig-conflict-001",
+        "demo-retract-late-001",
+        "demo-retract-ai-001"
+      ]
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "live-1786784515061",
+    "timestamp": "2026-08-15T09:01:55.074138+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": true,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "replay",
+    "event_id": "live-1786784515061",
+    "timestamp": "2026-08-15T09:01:55.074175+00:00",
+    "details": {
+      "reason": "late_arrival_or_timeline_reorder",
+      "affected_events": [
+        "live-1786784501680",
+        "live-1786784506998",
+        "live-1786784515061",
+        "demo-late-001",
+        "demo-suricata-001",
+        "demo-ai-001",
+        "demo-sig-001",
+        "demo-ai-low-001",
+        "demo-sig-high-001",
+        "demo-ai-high-001",
+        "demo-sig-conflict-001",
+        "demo-retract-late-001",
+        "demo-retract-ai-001"
+      ]
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "live-1786784516235",
+    "timestamp": "2026-08-15T09:01:56.247785+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": true,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "replay",
+    "event_id": "live-1786784516235",
+    "timestamp": "2026-08-15T09:01:56.247823+00:00",
+    "details": {
+      "reason": "late_arrival_or_timeline_reorder",
+      "affected_events": [
+        "live-1786784501680",
+        "live-1786784506998",
+        "live-1786784515061",
+        "live-1786784516235",
+        "demo-late-001",
+        "demo-suricata-001",
+        "demo-ai-001",
+        "demo-sig-001",
+        "demo-ai-low-001",
+        "demo-sig-high-001",
+        "demo-ai-high-001",
+        "demo-sig-conflict-001",
+        "demo-retract-late-001",
+        "demo-retract-ai-001"
+      ]
+    }
+  },
+  {
+    "operation": "manual_replay",
+    "timestamp": "2026-08-15T09:02:56.201419+00:00",
+    "details": {
+      "event_ids": [
+        "demo-late-001"
+      ],
+      "target_timestamp": "2026-08-15T14:15:00+00:00",
+      "delta_count": 0
+    }
+  },
+  {
+    "operation": "manual_replay",
+    "timestamp": "2026-08-15T09:02:57.239298+00:00",
+    "details": {
+      "event_ids": [
+        "demo-late-001"
+      ],
+      "target_timestamp": "2026-08-15T14:15:00+00:00",
+      "delta_count": 0
+    }
+  },
+  {
+    "operation": "ingest",
+    "event_id": "live-1786784589147",
+    "timestamp": "2026-08-15T09:03:09.167240+00:00",
+    "details": {
+      "source": "ai",
+      "is_replay": true,
+      "outcome": "alerted"
+    }
+  },
+  {
+    "operation": "replay",
+    "event_id": "live-1786784589147",
+    "timestamp": "2026-08-15T09:03:09.167342+00:00",
+    "details": {
+      "reason": "late_arrival_or_timeline_reorder",
+      "affected_events": [
+        "live-1786784501680",
+        "live-1786784506998",
+        "live-1786784515061",
+        "live-1786784516235",
+        "live-1786784589147",
+        "demo-late-001",
+        "demo-suricata-001",
+        "demo-ai-001",
+        "demo-sig-001",
+        "demo-ai-low-001",
+        "demo-sig-high-001",
+        "demo-ai-high-001",
+        "demo-sig-conflict-001",
+        "demo-retract-late-001",
+        "demo-retract-ai-001"
+      ]
+    }
+  }
+]
