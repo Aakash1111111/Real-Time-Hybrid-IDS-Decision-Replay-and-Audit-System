@@ -1,0 +1,122 @@
+{
+  "duplicate_exact": {
+    "event_id": "dup-001",
+    "timestamp": "2026-08-15T08:00:00Z",
+    "source": "ai",
+    "event_type": "anomaly_alert",
+    "alert_level": "medium",
+    "rule_id": "AI-100",
+    "confidence": 0.72,
+    "event_data": {"entity_id": "host-1", "session_id": "sess-a"}
+  },
+  "duplicate_updated_timestamp": {
+    "event_id": "dup-001",
+    "timestamp": "2026-08-15T08:05:00Z",
+    "source": "ai",
+    "event_type": "anomaly_alert",
+    "alert_level": "medium",
+    "rule_id": "AI-100",
+    "confidence": 0.72,
+    "event_data": {"entity_id": "host-1", "session_id": "sess-a"}
+  },
+  "late_arrival": {
+    "event_id": "late-001",
+    "timestamp": "2026-08-15T07:55:00Z",
+    "source": "signature",
+    "event_type": "network_alert",
+    "alert_level": "high",
+    "rule_id": "SIG-900",
+    "confidence": 0.91,
+    "event_data": {"entity_id": "host-2", "session_id": "sess-b"}
+  },
+  "early_baseline": {
+    "event_id": "early-001",
+    "timestamp": "2026-08-15T08:10:00Z",
+    "source": "ai",
+    "event_type": "anomaly_alert",
+    "alert_level": "low",
+    "rule_id": "AI-200",
+    "confidence": 0.88,
+    "event_data": {"entity_id": "host-2", "session_id": "sess-b"}
+  },
+  "conflict_ai_low_severity_high_confidence": {
+    "event_id": "conflict-ai-001",
+    "timestamp": "2026-08-15T09:00:00Z",
+    "source": "ai",
+    "event_type": "anomaly_alert",
+    "alert_level": "low",
+    "rule_id": "AI-300",
+    "confidence": 0.75,
+    "event_data": {"entity_id": "host-3", "session_id": "sess-c"}
+  },
+  "conflict_signature_high_severity_low_confidence": {
+    "event_id": "conflict-sig-001",
+    "timestamp": "2026-08-15T09:00:05Z",
+    "source": "signature",
+    "event_type": "network_alert",
+    "alert_level": "high",
+    "rule_id": "SIG-300",
+    "confidence": 0.40,
+    "event_data": {"entity_id": "host-3", "session_id": "sess-c"}
+  },
+  "conflict_ai_high_confidence": {
+    "event_id": "conflict-ai-002",
+    "timestamp": "2026-08-15T10:00:00Z",
+    "source": "ai",
+    "event_type": "anomaly_alert",
+    "alert_level": "low",
+    "rule_id": "AI-400",
+    "confidence": 0.90,
+    "event_data": {"entity_id": "host-4", "session_id": "sess-d"}
+  },
+  "conflict_signature_high_severity_2": {
+    "event_id": "conflict-sig-002",
+    "timestamp": "2026-08-15T10:00:05Z",
+    "source": "signature",
+    "event_type": "network_alert",
+    "alert_level": "high",
+    "rule_id": "SIG-400",
+    "confidence": 0.35,
+    "event_data": {"entity_id": "host-4", "session_id": "sess-d"}
+  },
+  "invalid_timestamp": {
+    "event_id": "bad-ts-001",
+    "timestamp": "not-a-valid-date",
+    "source": "ai",
+    "event_type": "anomaly_alert",
+    "alert_level": "low",
+    "rule_id": "AI-500",
+    "confidence": 0.55,
+    "event_data": {"entity_id": "host-5"}
+  },
+  "retract_ai_initial": {
+    "event_id": "retract-ai-001",
+    "timestamp": "2026-08-15T11:00:00Z",
+    "source": "ai",
+    "event_type": "anomaly_alert",
+    "alert_level": "high",
+    "rule_id": "AI-600",
+    "confidence": 0.92,
+    "event_data": {"entity_id": "host-6", "session_id": "sess-e"}
+  },
+  "retract_signature_override": {
+    "event_id": "retract-sig-001",
+    "timestamp": "2026-08-15T11:00:10Z",
+    "source": "signature",
+    "event_type": "network_alert",
+    "alert_level": "low",
+    "rule_id": "SIG-600",
+    "confidence": 0.95,
+    "event_data": {"entity_id": "host-6", "session_id": "sess-e", "override": true}
+  },
+  "retract_late_evidence": {
+    "event_id": "retract-late-001",
+    "timestamp": "2026-08-15T10:59:00Z",
+    "source": "signature",
+    "event_type": "network_alert",
+    "alert_level": "low",
+    "rule_id": "SIG-601",
+    "confidence": 0.99,
+    "event_data": {"entity_id": "host-6", "session_id": "sess-e", "benign": true}
+  }
+}

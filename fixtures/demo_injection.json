@@ -1,0 +1,173 @@
+[
+  {
+    "name": "1. Suricata network scan detected",
+    "event": {
+      "event_id": "demo-suricata-001",
+      "timestamp": "2026-08-15T14:00:00Z",
+      "source": "suricata",
+      "event_type": "network_alert",
+      "alert_level": "medium",
+      "rule_id": "ET SCAN Nmap",
+      "confidence": 0.68,
+      "event_data": {
+        "entity_id": "workstation-42",
+        "session_id": "sess-demo-1",
+        "src_ip": "192.168.1.50",
+        "dst_ip": "10.0.0.12",
+        "protocol": "TCP"
+      }
+    }
+  },
+  {
+    "name": "2. AI agrees - anomaly on same host",
+    "event": {
+      "event_id": "demo-ai-001",
+      "timestamp": "2026-08-15T14:00:05Z",
+      "source": "ai",
+      "event_type": "anomaly_alert",
+      "alert_level": "medium",
+      "rule_id": "AI-BEHAVIOR-07",
+      "confidence": 0.81,
+      "event_data": {
+        "entity_id": "workstation-42",
+        "session_id": "sess-demo-1",
+        "model_score": 0.81,
+        "feature": "port_scan_pattern"
+      }
+    }
+  },
+  {
+    "name": "3. Signature confirms - same entity",
+    "event": {
+      "event_id": "demo-sig-001",
+      "timestamp": "2026-08-15T14:00:10Z",
+      "source": "signature",
+      "event_type": "network_alert",
+      "alert_level": "medium",
+      "rule_id": "SIG-PORTSCAN-01",
+      "confidence": 0.77,
+      "event_data": {
+        "entity_id": "workstation-42",
+        "session_id": "sess-demo-1",
+        "signature": "TCP port sweep detected"
+      }
+    }
+  },
+  {
+    "name": "4. AI low confidence - should be IGNORED",
+    "event": {
+      "event_id": "demo-ai-low-001",
+      "timestamp": "2026-08-15T14:05:00Z",
+      "source": "ai",
+      "event_type": "anomaly_alert",
+      "alert_level": "medium",
+      "rule_id": "AI-BEHAVIOR-12",
+      "confidence": 0.32,
+      "event_data": {
+        "entity_id": "server-db-01",
+        "session_id": "sess-demo-2",
+        "model_score": 0.32
+      }
+    }
+  },
+  {
+    "name": "5. Signature high severity overrides low AI confidence",
+    "event": {
+      "event_id": "demo-sig-high-001",
+      "timestamp": "2026-08-15T14:05:05Z",
+      "source": "signature",
+      "event_type": "network_alert",
+      "alert_level": "high",
+      "rule_id": "SIG-BRUTE-FORCE",
+      "confidence": 0.45,
+      "event_data": {
+        "entity_id": "server-db-01",
+        "session_id": "sess-demo-2",
+        "signature": "SSH brute force attempt"
+      }
+    }
+  },
+  {
+    "name": "6. AI high confidence wins over signature severity",
+    "event": {
+      "event_id": "demo-ai-high-001",
+      "timestamp": "2026-08-15T14:10:00Z",
+      "source": "ai",
+      "event_type": "anomaly_alert",
+      "alert_level": "low",
+      "rule_id": "AI-BEHAVIOR-99",
+      "confidence": 0.91,
+      "event_data": {
+        "entity_id": "web-gateway-03",
+        "session_id": "sess-demo-3"
+      }
+    }
+  },
+  {
+    "name": "7. Conflicting signature (high severity, low confidence)",
+    "event": {
+      "event_id": "demo-sig-conflict-001",
+      "timestamp": "2026-08-15T14:10:05Z",
+      "source": "signature",
+      "event_type": "network_alert",
+      "alert_level": "high",
+      "rule_id": "SIG-WEB-SHELL",
+      "confidence": 0.38,
+      "event_data": {
+        "entity_id": "web-gateway-03",
+        "session_id": "sess-demo-3"
+      }
+    }
+  },
+  {
+    "name": "8. Late-arriving historical evidence (triggers replay)",
+    "event": {
+      "event_id": "demo-late-001",
+      "timestamp": "2026-08-15T13:59:00Z",
+      "source": "signature",
+      "event_type": "network_alert",
+      "alert_level": "high",
+      "rule_id": "SIG-LATERAL-MOVE",
+      "confidence": 0.88,
+      "event_data": {
+        "entity_id": "workstation-42",
+        "session_id": "sess-demo-1",
+        "note": "Late delivery from batch import"
+      }
+    }
+  },
+  {
+    "name": "9. Initial high-severity AI alert (retraction scenario)",
+    "event": {
+      "event_id": "demo-retract-ai-001",
+      "timestamp": "2026-08-15T14:15:00Z",
+      "source": "ai",
+      "event_type": "anomaly_alert",
+      "alert_level": "high",
+      "rule_id": "AI-EXFIL-01",
+      "confidence": 0.93,
+      "event_data": {
+        "entity_id": "file-server-07",
+        "session_id": "sess-demo-4"
+      }
+    }
+  },
+  {
+    "name": "10. Benign late evidence retracts prior alert",
+    "event": {
+      "event_id": "demo-retract-late-001",
+      "timestamp": "2026-08-15T14:14:00Z",
+      "source": "signature",
+      "event_type": "network_alert",
+      "alert_level": "low",
+      "rule_id": "SIG-FP-CHECK",
+      "confidence": 0.97,
+      "event_data": {
+        "entity_id": "file-server-07",
+        "session_id": "sess-demo-4",
+        "benign": true,
+        "note": "Confirmed scheduled backup traffic"
+      }
+    }
+  }
+]
